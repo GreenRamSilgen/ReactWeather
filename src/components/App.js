@@ -1,7 +1,7 @@
 import React from 'react';
 import {ApiManager} from '../javascript/ApiManager';
 import {WeatherDisplay} from './WeatherDisplay';
-import {WeatherQuery} from './WeatherQuery';
+
 class App extends React.Component{
   constructor(props){
     super(props);
@@ -48,8 +48,6 @@ handleSubmit(event){
 
 
   componentDidMount(){
-    let lat;
-    let lon;
     let geo = navigator.geolocation;
     geo.getCurrentPosition((location)=>{
       ApiManager.getWeatherCoord({
