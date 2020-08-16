@@ -1,80 +1,87 @@
-import React from 'react';
-import {ApiManager} from '../javascript/ApiManager';
-import {WeatherDisplay} from './WeatherDisplay';
+import React from "react";
+import { ApiManager } from "../javascript/ApiManager";
+import { WeatherDisplay } from "./WeatherDisplay";
+import "../cssFiles/App.css";
 
-class App extends React.Component{
-  constructor(props){
+class App extends React.Component {
+  constructor(props) {
     super(props);
     this.state = {
-        state:'',
-        city:'',
-        data:'',
+      state: "",
+      city: "",
+      data: "",
     };
 
-    this.result  = '';
+    this.result = "";
 
     this.handleStateChange = this.handleStateChange.bind(this);
     this.handleCityChange = this.handleCityChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-}
+  }
 
-handleStateChange(event){
+  handleStateChange(event) {
     this.setState({
-        state: event.target.value,
-    })
-}
-
-handleCityChange(event){
-    this.setState({
-        city: event.target.value,
+      state: event.target.value,
     });
-}
+  }
 
-handleSubmit(event){
+  handleCityChange(event) {
+    this.setState({
+      city: event.target.value,
+    });
+  }
+
+  handleSubmit(event) {
     event.preventDefault();
-    console.log(this.state);
     ApiManager.getWeatherCS({
       city: this.state.city,
       state: this.state.state,
-    }).then((response)=>{
-      console.log(response);
+    }).then((response) => {
       this.setState({
         data: response,
-        city: '',
-        state:'',
+        city: "",
+        state: "",
       });
     });
-}
+  }
 
-
-  componentDidMount(){
+  componentDidMount() {
     let geo = navigator.geolocation;
-    geo.getCurrentPosition((location)=>{
+    geo.getCurrentPosition((location) => {
       ApiManager.getWeatherCoord({
         lat: location.coords.latitude,
         lon: location.coords.longitude,
-      }).then((response)=>{
+      }).then((response) => {
         console.log(response);
+        console.log("RES");
         this.setState({
           data: response,
-          city: '',
-          state:'',
+          city: "",
+          state: "",
         });
       });
     });
-
-    
   }
 
-  render(){
+  render() {
     return (
       <div className="App">
-            <form onSubmit={this.handleSubmit}>
-                <input type="text" value={this.state.state} onChange={this.handleStateChange} placeholder="City"></input>
-                <input type="text" value={this.state.city} onChange={this.handleCityChange}placeholder="State"></input>
-                <input type="submit" />
-            </form>
-        <WeatherDisplay weatherData={this.state.data}/>
+        <form onSubmit={this.handleSubmit}>
+          <input
+            type="text"
+            value={this.state.state}
+            onChange={this.handleStateChange}
+            placeholder="City"
+          ></input>
+          <input
+            type="text"
+            value={this.state.city}
+            onChange={this.handleCityChange}
+            placeholder="State"
+          ></input>
+          <input type="submit" />
+        </form>
+        <WeatherDisplay weatherData={this.state.data} />
       </div>
     );
   }
