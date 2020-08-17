@@ -1,117 +1,62 @@
 .App{
     width: 100%;
 }
-
-.clRed{
-    background: red;
-}
-
-.clOrange{
-    background: orange;
-}
-
-.clYellow{
-    background: yellow;
-}
-
-.clGreen{
-    background: green;
-}
-
-
-.clBlue{
-    background: blue;
-}
-
-
-/*BTN COLOR*/
-.clRedBtn{
-    border-color: red;
-}
-.clRedBtn:hover{
-    background: red;
-}
-.clOrangeBtn{
-    border-color: orange;
-}
-.clOrangeBtn:hover{
-    background: orange;
-}
-.clYellowBtn{
-    border-color: yellow;
-}
-.clYellowBtn::hover{
-    background: yellow;
-}
-.clGreenBtn{
-    border-color: green;
-}
-.clGreenBtn:hover{
-    background: green;
-}
-.clBlueBtn{
-    border-color: blue;
-}
-.clBlueBtn:hover{
-    background: blue;
-}
-
-.degBtn{
-    margin: 0.7em;
-}
-
-.temperatureBlock{
+header {
+    height: 2em;
+    width: 100%;
+    background: rgb(71, 71, 71);
+    color: var(--c1);
     display: flex;
-    justify-content: center;
-    width: inherit;
-    margin: 1em;
-}
-.temperature{
-    display: flex;
-    justify-content: center;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
     align-items: center;
-    
-    font-size: xx-large;
-    border-radius: 50%;
-    padding: 1em;
+
+    font-size: large;
+    color: white;
 }
 
-.tempTypeBtns{
+body {
+    font-family: 'Roboto', sans-serif;
+    min-height: 100%;
+    background-color: rgb(45, 45, 45);
+}
+
+footer {
+    position: fixed;
+    bottom: 0px;
+    height: 2em;
+    width: 100%;
+    background: rgb(71, 71, 71);
+    grid-column: 1/-1;
+    margin-top: auto;
+
     display: flex;
-    flex-direction: column;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.foot {
+    position: absolute;
+    right: 0px;
+}
+
+.foot__icons {
+    color: white;
+    padding: 0px 20px;
+}
+
+input{
+    margin: 0.5em;
+}
+img{
+    width: 1em;
+    height: auto;
 }
 
 
-.extraDataBlock{
+.appSearch{
     display: flex;
-    width: inherit;
     justify-content: center;
-    margin: 1em;
-}
-
-.extraDataContent{
-    display: grid;
-    grid-template-areas: "loc loc"
-    "humid pressure";
-    grid-gap: 1em;
-
-    background: rgb(255, 255, 255);
     padding: 1em;
-    font-size: x-large;
-
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgb(189, 189, 189);
-}
-
-.exDataLoc{
-    grid-area: loc;
-    text-align: center;
-}
-
-.exDataHumid{
-    grid-area: humid;
-}
-
-.exDataPress{
-    grid-area: pressure;
+    margin: 1em;
 }

@@ -37,11 +37,14 @@ class App extends React.Component {
       city: this.state.city,
       state: this.state.state,
     }).then((response) => {
+      if(response.cod !== "404")
+      {
       this.setState({
         data: response,
         city: "",
         state: "",
       });
+    }
     });
   }
 
@@ -52,8 +55,6 @@ class App extends React.Component {
         lat: location.coords.latitude,
         lon: location.coords.longitude,
       }).then((response) => {
-        console.log(response);
-        console.log("RES");
         this.setState({
           data: response,
           city: "",
@@ -66,6 +67,9 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+    <header>React Weather</header>
+
+      <div className="appSearch">
         <form onSubmit={this.handleSubmit}>
           <input
             type="text"
@@ -79,9 +83,29 @@ class App extends React.Component {
             onChange={this.handleCityChange}
             placeholder="State"
           ></input>
-          <input type="submit" />
+          <input type="submit" className="btn btn-success"/>
         </form>
+        </div>
+        <div className="appDisplay">
         <WeatherDisplay weatherData={this.state.data} />
+        </div>
+        
+        <footer>
+
+      <div className="foot">
+        <a target="_blank" href="https://github.com/GreenRamSilgen"
+          ><i
+            className="fab fa-github-square fa-lg foot__icons"
+            title="My Github"
+          ></i
+        ></a>
+        <a
+          target="_blank"
+          href="https://github.com/GreenRamSilgen/ReactWeather"
+          ><i className="fas fa-code fa-lg foot__icons" title="Source Code"></i
+        ></a>
+      </div>
+    </footer>
       </div>
     );
   }

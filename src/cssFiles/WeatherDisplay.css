@@ -1,0 +1,133 @@
+.hide{
+    display: none;
+}
+.clRed{
+    background: red;
+}
+
+.clOrange{
+    background: orange;
+}
+
+.clYellow{
+    background: yellow;
+}
+
+.clGreen{
+    background: green;
+}
+
+
+.clBlue{
+    background: blue;
+}
+
+
+/*BTN COLOR*/
+.clRedBtn{
+    border-color: red;
+}
+.clRedBtn:hover{
+    background: red;
+}
+.clOrangeBtn{
+    border-color: orange;
+}
+.clOrangeBtn:hover{
+    background: orange;
+}
+.clYellowBtn{
+    border-color: yellow;
+}
+.clYellowBtn::hover{
+    background: yellow;
+}
+.clGreenBtn{
+    border-color: green;
+}
+.clGreenBtn:hover{
+    background: green;
+}
+.clBlueBtn{
+    border-color: blue;
+}
+.clBlueBtn:hover{
+    background: blue;
+}
+
+.degBtn{
+    margin: 0.7em;
+}
+
+.temperatureBlock{
+    display: flex;
+    justify-content: center;
+    width: inherit;
+    margin: 1em;
+    padding: 1em;
+}
+.temperature{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    font-size: xx-large;
+    
+    border-radius: 50%;
+    border-style: solid;
+    border-color: rgb(189, 189, 189);
+
+    box-shadow: 0px 0px 10px rgb(189, 189, 189);
+}
+
+.tempTypeBtns{
+    display: flex;
+    flex-direction: column;
+}
+
+/* EXTRA DATA */
+.extraDataBlock{
+    display: flex;
+    width: inherit;
+    justify-content: center;
+    margin: 1em;
+}
+
+.extraDataContent{
+    display: grid;
+    grid-template-areas: "loc loc"
+    "high low"
+    "humid pressure";
+    grid-gap: 1em;
+
+    background: rgb(255, 255, 255);
+    padding: 1em;
+    font-size: x-large;
+
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgb(189, 189, 189);
+}
+
+.exData{
+    background: rgb(255, 255, 255);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgb(189, 189, 189);
+}
+
+.exDataLoc{
+    grid-area: loc;
+    text-align: center;
+}
+.exDataHumid{
+    grid-area: humid;
+}
+.exDataPress{
+    grid-area: pressure;
+}
+.exDataHigh{
+    grid-area: high;
+}
+.exDataLow{
+    grid-area: low;
+}
